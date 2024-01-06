@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Image,
   StyleSheet,
   Text,
   View,
@@ -7,10 +8,19 @@ import {
 
 function App(): React.JSX.Element {
 
+  const logo = require('./assets/logo/MealMateLogo1.jpg')
+  const mealExample = require('./assets/meals/Meal1.jpeg')
+
   return (
     <View style={styles.modal}>
+      <View style={styles.topBar}>
+        <Image source={logo} style={styles.logo}/>
+      </View>
+      <View style={styles.content}>
       <View style={styles.image}>
-        <View style={styles.image2}></View>
+      <Text>Spaghetti Bolognese</Text>
+        <Image source={mealExample} style={styles.image2}/>
+      </View>
       </View>
       <View style={styles.panel}>
       <View style={styles.button}><Text style={styles.buttonText}>No</Text></View>
@@ -23,30 +33,57 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   modal: {
     backgroundColor: '#ffddbe',
-    height: '100%',
+    flex: 1,
     display: 'flex'
+  },
+  topBar: {
+    flex: 1,
+    display: 'flex',
+    maxHeight: 88,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 8
+  },
+  content: {
+    flex: 1,
+    display: 'flex',
+  },
+  logo: {
+    width: 75,
+    height: 75
   },
   image: {
     flex: 1,
-    margin: 30,
-    borderColor: '#7d575a',
+    marginHorizontal: 30,
+    borderColor: '#black',
     borderWidth: 1.5,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    shadowColor: 'black',
+    shadowOpacity: 1,
+    shadowRadius: 15,
+    shadowOffset: { width: 10, height: 10 },
+    paddingVertical: 15,
+    alignItems: 'center'
   },
   image2: {
     flex: 1,
-    margin: 25,
-    marginBottom: 125,
-    borderColor: '#7d575a',
-    borderWidth: 1.5,
-    backgroundColor: '#ffddbe'
+    margin: 30,
+    marginTop: 15,
+    marginBottom: 175,
+    borderColor: 'black',
+    borderWidth: 0.75,
+    maxHeight: '50%',
+    maxWidth: '80%'
+
   },
   panel: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'row',
-    marginHorizontal: 20,
+    margin: 20,
     justifyContent: 'space-around',
-    marginBottom: 20
+    maxHeight: 88
   },
   button: {
     backgroundColor: '#7d575a',
